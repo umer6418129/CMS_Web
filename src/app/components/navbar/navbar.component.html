@@ -1,0 +1,40 @@
+<app-header></app-header>
+<div class="navigation">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-10 col-md-10 col-sm-9 col-8">
+                <nav class="navbar navbar-expand-lg">
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+
+                    <div class="collapse navbar-collapse sub-menu-bar" id="navbarSupportedContent">
+                        <ul class="navbar-nav mr-auto" *ngFor="let item of navItems">
+                            <li class="nav-item" (click)="navigate(item.path)">
+                                <a>{{ item.title }}</a>
+                            </li>
+                            <!-- example of dropdown into navbar of this theme -->
+                            <!-- <li class="nav-item">
+                                <a href="courses.html">Courses</a>
+                                <ul class="sub-menu">
+                                    <li><a href="courses.html">Courses</a></li>
+                                    <li><a href="courses-singel.html">Course Singel</a></li>
+                                </ul>
+                            </li> -->
+                        </ul>
+                    </div>
+                </nav> <!-- nav -->
+            </div>
+            <!-- <div class="col-lg-2 col-md-2 col-sm-3 col-4">
+                <div class="right-icon text-right">
+                    <ul>
+                        <li><a href="#" id="search"><i class="fa fa-search"></i></a></li>
+                        <li><a href="#"><i class="fa fa-shopping-bag"></i><span>0</span></a></li>
+                    </ul>
+                </div>
+            </div> -->
+        </div> <!-- row -->
+    </div> <!-- container -->
+</div>
