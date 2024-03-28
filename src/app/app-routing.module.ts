@@ -10,6 +10,10 @@ const routes: Routes = [
   {
     path:AppConst.MAIN_ROUTES.Home,
     loadChildren:()=>import("./pages/home/home.module").then((m)=>m.HomeModule)
+  },
+  {
+    path:AppConst.MAIN_ROUTES.CONTACT,
+    loadChildren:()=>import("./pages/contact-us/contact-us.module").then((m)=>m.ContactUsModule)
   }
 ];
 
