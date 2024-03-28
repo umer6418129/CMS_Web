@@ -1,1 +1,15 @@
-/* You can add global styles to this file, and also import other style files */
+.toast-custom {
+    background-color: #333; /* Change background color */
+    color: #fff; /* Change text color */
+    border-radius: 8px; /* Add border radius */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add box shadow */
+  }
+  
+  .toast-custom .toast-header {
+    background-color: #555; /* Change header background color */
+    color: #fff; /* Change header text color */
+  }
+  
+  .toast-custom .toast-body {
+    padding: 10px; /* Adjust padding */
+  }

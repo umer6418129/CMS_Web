@@ -9,47 +9,43 @@
                         <h2>Keep in touch</h2>
                     </div> <!-- section title -->
                     <div class="main-form pt-45">
-                        <form id="contact-form" action="#" method="post" data-toggle="validator">
+                        <form>
                             <div class="row">
                                 <div class="col-md-6">
                                     <div class="singel-form form-group">
-                                        <input name="name" type="text" placeholder="Your name"
-                                            data-error="Name is required." required="required">
+                                        <input name="name" [(ngModel)]="this.contactUsFormObj.full_name" type="text" placeholder="Your name">
                                         <div class="help-block with-errors"></div>
                                     </div> <!-- singel form -->
                                 </div>
                                 <div class="col-md-6">
                                     <div class="singel-form form-group">
-                                        <input name="email" type="email" placeholder="Email"
-                                            data-error="Valid email is required." required="required">
+                                        <input name="email" [(ngModel)]="this.contactUsFormObj.email" type="email" placeholder="Email"
+                                        >
                                         <div class="help-block with-errors"></div>
                                     </div> <!-- singel form -->
                                 </div>
                                 <div class="col-md-6">
                                     <div class="singel-form form-group">
-                                        <input name="subject" type="text" placeholder="Subject"
-                                            data-error="Subject is required." required="required">
+                                        <input name="subject" [(ngModel)]="this.contactUsFormObj.subject" type="text" placeholder="Subject">
                                         <div class="help-block with-errors"></div>
                                     </div> <!-- singel form -->
                                 </div>
                                 <div class="col-md-6">
                                     <div class="singel-form form-group">
-                                        <input name="phone" type="text" placeholder="Phone"
-                                            data-error="Phone is required." required="required">
+                                        <input name="phone" [(ngModel)]="this.contactUsFormObj.phone" type="text" placeholder="Phone">
                                         <div class="help-block with-errors"></div>
                                     </div> <!-- singel form -->
                                 </div>
                                 <div class="col-md-12">
                                     <div class="singel-form form-group">
-                                        <textarea name="messege" placeholder="Messege"
-                                            data-error="Please,leave us a message." required="required"></textarea>
+                                        <textarea name="messege" [(ngModel)]="this.contactUsFormObj.description" placeholder="Messege"></textarea>
                                         <div class="help-block with-errors"></div>
                                     </div> <!-- singel form -->
                                 </div>
                                 <p class="form-message"></p>
-                                <div class="col-md-12">
+                                <div class="col-md-12" (click)="submitForm()">
                                     <div class="singel-form">
-                                        <button type="submit" class="main-btn">Send</button>
+                                        <button class="main-btn">Send</button>
                                     </div> <!-- singel form -->
                                 </div>
                             </div> <!-- row -->
