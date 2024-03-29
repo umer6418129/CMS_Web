@@ -12,7 +12,7 @@ export class AppConst {
         CART: 'cart',
     }
     static URL_REQUEST = {
-        // LOGIN: 'l`ogin',
+        ContactUs: 'ContactUs',
 
     }
 }
