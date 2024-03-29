@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
+import { AppConst } from 'src/app/app.Const';
 import { ContactUsService } from 'src/app/services/contact-us.service';
 declare var google: any;
 @Component({
@@ -19,7 +21,11 @@ export class ContactUsComponent {
     phone: '',
     description: '',
   };
-  constructor(public toastr: ToastrService,public contactUs : ContactUsService) {}
+  constructor(
+    public toastr: ToastrService,
+    public contactUs: ContactUsService,
+    public router: Router
+  ) {}
 
   ngOnInit(): void {
     this.basicmap();
@@ -82,16 +88,31 @@ export class ContactUsComponent {
   }
 
   submitForm(): any {
-    if (this.Validation()) {
-      return true;
-    } else {
-      this.contactUs.postMessage(this.contactUsFormObj).then((res)=>{
-        if (res.status == 1) {
-          this.toastr.success('Form successfully submitted');
-        }else{
-          this.toastr.error(res.message);
-        }
-      })
+    try {
+      if (this.Validation()) {
+        return true;
+      } else {
+        this.contactUs.postMessage(this.contactUsFormObj).then((res) => {
+          if (res.status == 1) {
+            this.makeFeildEmpty();
+            this.toastr.success('Form successfully submitted');
+          } else {
+            this.toastr.error(res.message);
+          }
+        });
+      }
+    } catch (error) {
+      this.toastr.error('something went wrong');
+      console.log(error);
     }
+  }
+
+  makeFeildEmpty() :void {
+    this.contactUsFormObj.full_name = '';
+    this.contactUsFormObj.email = '';
+    this.contactUsFormObj.subject = '';
+    this.contactUsFormObj.phone = '';
+    this.contactUsFormObj.description = '';
+    window.scrollTo(0, 0);
   }
 }
