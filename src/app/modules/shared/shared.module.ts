@@ -7,6 +7,8 @@ import { ToastrModule } from 'ngx-toastr';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { NgxUiLoaderConfig, NgxUiLoaderModule } from 'ngx-ui-loader';
+import { FeaturedCoursesComponent } from 'src/app/components/featured-courses/featured-courses.component';
+import { FeaturedCourseCardComponent } from 'src/app/components/featured-course-card/featured-course-card.component';
 const ngxUiLoaderConfig: NgxUiLoaderConfig = {
   bgsColor: '#ffc107',
   bgsOpacity: 0,
@@ -27,8 +29,8 @@ const ngxUiLoaderConfig: NgxUiLoaderConfig = {
 };
 
 @NgModule({
-  declarations: [PreLoaderComponent, HeaderComponent,PageBannerComponent,],
+  declarations: [PreLoaderComponent, HeaderComponent,FeaturedCourseCardComponent,PageBannerComponent,FeaturedCoursesComponent,],
   imports: [ReactiveFormsModule,FormsModule,HttpClientModule,ToastrModule.forRoot(),NgxUiLoaderModule.forRoot(ngxUiLoaderConfig),],
-  exports: [ReactiveFormsModule,PreLoaderComponent ,HttpClientModule ,HeaderComponent,PageBannerComponent,FormsModule,NgxUiLoaderModule,],
+  exports: [ReactiveFormsModule,PreLoaderComponent ,HttpClientModule ,HeaderComponent,FeaturedCourseCardComponent,PageBannerComponent,FeaturedCoursesComponent,FormsModule,NgxUiLoaderModule,],
 })
 export class SharedModule {}
