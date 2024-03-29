@@ -1,12 +1,25 @@
-import { Component } from '@angular/core';
+import { AfterViewInit, Component, Input } from '@angular/core';
+import {environment} from '../../../environments/environment'
 declare var $: any;
 @Component({
   selector: 'app-featured-courses',
   templateUrl: './featured-courses.component.html',
-  styleUrls: ['./featured-courses.component.css']
+  styleUrls: ['./featured-courses.component.css'],
 })
-export class FeaturedCoursesComponent {
-
+export class FeaturedCoursesComponent implements AfterViewInit {
+  @Input() data: any;
+  baseUrl: any;
+  constructor(){
+    // console.log(this.data);
+    
+  }
+  ngAfterViewInit(): void {
+    this.initCourseSlider();
+  }
+  ngOnInit(): void {
+    this.baseUrl = environment.baseUrl;
+    // this.initCourseSlider();
+  }
   initCourseSlider() {
     $('.course-slied').slick({
       dots: false,
@@ -25,14 +38,14 @@ export class FeaturedCoursesComponent {
           settings: {
             slidesToShow: 3,
             slidesToScroll: 1,
-          }
+          },
         },
         {
           breakpoint: 992,
           settings: {
             slidesToShow: 2,
             slidesToScroll: 1,
-          }
+          },
         },
         {
           breakpoint: 768,
@@ -40,9 +53,9 @@ export class FeaturedCoursesComponent {
             slidesToShow: 1,
             slidesToScroll: 1,
             arrows: false,
-          }
-        }
-      ]
+          },
+        },
+      ],
     });
     $('.course-slied').slick({
       dots: false,
@@ -60,25 +73,25 @@ export class FeaturedCoursesComponent {
           breakpoint: 1200,
           settings: {
             slidesToShow: 3,
-            slidesToScroll: 1
-          }
+            slidesToScroll: 1,
+          },
         },
         {
           breakpoint: 992,
           settings: {
             slidesToShow: 2,
-            slidesToScroll: 1
-          }
+            slidesToScroll: 1,
+          },
         },
         {
           breakpoint: 768,
           settings: {
             slidesToShow: 1,
             slidesToScroll: 1,
-            arrows: false
-          }
-        }
-      ]
+            arrows: false,
+          },
+        },
+      ],
     });
   }
 }

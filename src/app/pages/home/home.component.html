@@ -50,4 +50,6 @@
         </div> <!-- container -->
     </div> <!-- single slider -->
 </section>
-<app-featured-courses></app-featured-courses>
+<div class="{{ featuredCourses.length < 3 ? 'd-none' : ''  }}">
+    <app-featured-courses [data]="featuredCourses"></app-featured-courses>
+</div>

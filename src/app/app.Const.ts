@@ -13,6 +13,7 @@ export class AppConst {
     }
     static URL_REQUEST = {
         ContactUs: 'ContactUs',
+        feturedCourses: 'Courses/featured',
 
     }
 }

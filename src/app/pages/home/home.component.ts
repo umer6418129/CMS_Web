@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { CourseService } from 'src/app/services/course.service';
 declare var $: any;
 @Component({
   selector: 'app-home',
@@ -8,11 +9,96 @@ declare var $: any;
 export class HomeComponent {
   h1:any="Choose the right college for education";
   para:any="Choosing the right college is a pivotal decision in shaping your educational journey. It's not just about the prestige, but also about finding a place that nurtures your interests and goals. At our institution, we offer a diverse range of programs and a supportive community to help you thrive. Let us be your stepping stone towards a bright future."
-  constructor() { }
-
+  featuredCourses :any
+  constructor(public courseService : CourseService) { 
+  }
+  
   ngOnInit(): void {
+    this.getFeturedCourses()
     this.mainSlider();
-    this.initCourseSlider();
+    this.initCourseSlider
+  }
+  getFeturedCourses(){
+    this.courseService.getFeturedCourses().then((res)=>{
+      if (res.status == 1) {
+        this.featuredCourses = res.data
+        
+      }
+    })
+  }
+  initCourseSlider() {
+    $('.course-slied').slick({
+      dots: false,
+      infinite: true,
+      speed: 800,
+      slidesToShow: 3,
+      slidesToScroll: 1,
+      autoplay: true,
+      autoplaySpeed: 5000,
+      arrows: true,
+      prevArrow: '<span class="prev"><i class="fa fa-angle-left"></i></span>',
+      nextArrow: '<span class="next"><i class="fa fa-angle-right"></i></span>',
+      responsive: [
+        {
+          breakpoint: 1200,
+          settings: {
+            slidesToShow: 3,
+            slidesToScroll: 1,
+          },
+        },
+        {
+          breakpoint: 992,
+          settings: {
+            slidesToShow: 2,
+            slidesToScroll: 1,
+          },
+        },
+        {
+          breakpoint: 768,
+          settings: {
+            slidesToShow: 1,
+            slidesToScroll: 1,
+            arrows: false,
+          },
+        },
+      ],
+    });
+    $('.course-slied').slick({
+      dots: false,
+      infinite: true,
+      speed: 800,
+      slidesToShow: 3,
+      slidesToScroll: 1,
+      autoplay: true,
+      autoplaySpeed: 5000,
+      arrows: true,
+      prevArrow: '<span class="prev"><i class="fa fa-angle-left"></i></span>',
+      nextArrow: '<span class="next"><i class="fa fa-angle-right"></i></span>',
+      responsive: [
+        {
+          breakpoint: 1200,
+          settings: {
+            slidesToShow: 3,
+            slidesToScroll: 1,
+          },
+        },
+        {
+          breakpoint: 992,
+          settings: {
+            slidesToShow: 2,
+            slidesToScroll: 1,
+          },
+        },
+        {
+          breakpoint: 768,
+          settings: {
+            slidesToShow: 1,
+            slidesToScroll: 1,
+            arrows: false,
+          },
+        },
+      ],
+    });
   }
   mainSlider() {
     var BasicSlider = $('.slider-active');
@@ -55,80 +141,6 @@ export class HomeComponent {
       $this.addClass($animationType).one(animationEndEvents, function() {
         $this.removeClass($animationType);
       });
-    });
-  }
-  initCourseSlider() {
-    $('.course-slied').slick({
-      dots: false,
-      infinite: true,
-      speed: 800,
-      slidesToShow: 3,
-      slidesToScroll: 1,
-      autoplay: true,
-      autoplaySpeed: 5000,
-      arrows: true,
-      prevArrow: '<span class="prev"><i class="fa fa-angle-left"></i></span>',
-      nextArrow: '<span class="next"><i class="fa fa-angle-right"></i></span>',
-      responsive: [
-        {
-          breakpoint: 1200,
-          settings: {
-            slidesToShow: 3,
-            slidesToScroll: 1,
-          }
-        },
-        {
-          breakpoint: 992,
-          settings: {
-            slidesToShow: 2,
-            slidesToScroll: 1,
-          }
-        },
-        {
-          breakpoint: 768,
-          settings: {
-            slidesToShow: 1,
-            slidesToScroll: 1,
-            arrows: false,
-          }
-        }
-      ]
-    });
-    $('.course-slied').slick({
-      dots: false,
-      infinite: true,
-      speed: 800,
-      slidesToShow: 3,
-      slidesToScroll: 1,
-      autoplay: true,
-      autoplaySpeed: 5000,
-      arrows: true,
-      prevArrow: '<span class="prev"><i class="fa fa-angle-left"></i></span>',
-      nextArrow: '<span class="next"><i class="fa fa-angle-right"></i></span>',
-      responsive: [
-        {
-          breakpoint: 1200,
-          settings: {
-            slidesToShow: 3,
-            slidesToScroll: 1
-          }
-        },
-        {
-          breakpoint: 992,
-          settings: {
-            slidesToShow: 2,
-            slidesToScroll: 1
-          }
-        },
-        {
-          breakpoint: 768,
-          settings: {
-            slidesToShow: 1,
-            slidesToScroll: 1,
-            arrows: false
-          }
-        }
-      ]
     });
   }
 }

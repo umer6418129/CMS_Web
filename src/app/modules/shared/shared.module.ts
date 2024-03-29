@@ -30,7 +30,7 @@ const ngxUiLoaderConfig: NgxUiLoaderConfig = {
 
 @NgModule({
   declarations: [PreLoaderComponent, HeaderComponent,FeaturedCourseCardComponent,PageBannerComponent,FeaturedCoursesComponent,],
-  imports: [ReactiveFormsModule,FormsModule,HttpClientModule,ToastrModule.forRoot(),NgxUiLoaderModule.forRoot(ngxUiLoaderConfig),],
-  exports: [ReactiveFormsModule,PreLoaderComponent ,HttpClientModule ,HeaderComponent,FeaturedCourseCardComponent,PageBannerComponent,FeaturedCoursesComponent,FormsModule,NgxUiLoaderModule,],
+  imports: [ReactiveFormsModule,CommonModule,FormsModule,HttpClientModule,ToastrModule.forRoot(),NgxUiLoaderModule.forRoot(ngxUiLoaderConfig),],
+  exports: [ReactiveFormsModule,CommonModule,PreLoaderComponent ,HttpClientModule ,HeaderComponent,FeaturedCourseCardComponent,PageBannerComponent,FeaturedCoursesComponent,FormsModule,NgxUiLoaderModule,],
 })
 export class SharedModule {}
