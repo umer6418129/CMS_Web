@@ -5,9 +5,11 @@ import { HeaderComponent } from 'src/app/components/header/header.component';
 import { PageBannerComponent } from 'src/app/components/page-banner/page-banner.component';
 import { ToastrModule } from 'ngx-toastr';
 import { FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
+
 @NgModule({
   declarations: [PreLoaderComponent, HeaderComponent,PageBannerComponent,],
-  imports: [FormsModule,CommonModule,ToastrModule.forRoot()],
-  exports: [PreLoaderComponent, HeaderComponent,PageBannerComponent,FormsModule],
+  imports: [FormsModule,HttpClientModule,ToastrModule.forRoot()],
+  exports: [PreLoaderComponent ,HttpClientModule ,HeaderComponent,PageBannerComponent,FormsModule],
 })
 export class SharedModule {}

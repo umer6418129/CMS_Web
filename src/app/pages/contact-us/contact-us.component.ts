@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { ToastrService } from 'ngx-toastr';
+import { ContactUsService } from 'src/app/services/contact-us.service';
 declare var google: any;
 @Component({
   selector: 'app-contact-us',
@@ -18,7 +19,7 @@ export class ContactUsComponent {
     phone: '',
     description: '',
   };
-  constructor(public toastr: ToastrService) {}
+  constructor(public toastr: ToastrService,public contactUs : ContactUsService) {}
 
   ngOnInit(): void {
     this.basicmap();
@@ -46,45 +47,51 @@ export class ContactUsComponent {
   showSuccessToast() {
     this.toastr.success('This is a success toast', 'Success');
   }
-  
+
   Validation(): any {
     if (
       this.contactUsFormObj.full_name == '' ||
       this.contactUsFormObj.full_name == null
-      ) {
-        return this.toastr.error('Name is Required');
-      }
-      if (
-        this.contactUsFormObj.email == '' ||
-        this.contactUsFormObj.email == null
-        ) {
-          return this.toastr.error('email is Required');
-        }
-        if (
-          this.contactUsFormObj.subject == '' ||
-          this.contactUsFormObj.subject == null
-          ) {
-            return this.toastr.error('subject is Required');
-          }
-          if (
+    ) {
+      return this.toastr.error('Name is Required');
+    }
+    if (
+      this.contactUsFormObj.email == '' ||
+      this.contactUsFormObj.email == null
+    ) {
+      return this.toastr.error('email is Required');
+    }
+    if (
+      this.contactUsFormObj.subject == '' ||
+      this.contactUsFormObj.subject == null
+    ) {
+      return this.toastr.error('subject is Required');
+    }
+    if (
       this.contactUsFormObj.phone == '' ||
       this.contactUsFormObj.phone == null
-      ) {
-        return this.toastr.error('phone is Required');
-      }
-      if (
-        this.contactUsFormObj.description == '' ||
-        this.contactUsFormObj.description == null
-        ) {
-          return this.toastr.error('description is Required');
-        }
-      }
-      
-      submitForm() : any {
-        if (this.Validation()) {
-          return true;
-        } else {
+    ) {
+      return this.toastr.error('phone is Required');
+    }
+    if (
+      this.contactUsFormObj.description == '' ||
+      this.contactUsFormObj.description == null
+    ) {
+      return this.toastr.error('description is Required');
+    }
+  }
+
+  submitForm(): any {
+    if (this.Validation()) {
+      return true;
+    } else {
+      this.contactUs.postMessage(this.contactUsFormObj).then((res)=>{
+        if (res.status == 1) {
           this.toastr.success('Form successfully submitted');
+        }else{
+          this.toastr.error(res.message);
         }
+      })
+    }
   }
 }
