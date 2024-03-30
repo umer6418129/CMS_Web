@@ -14,7 +14,11 @@ const routes: Routes = [
   {
     path:AppConst.MAIN_ROUTES.CONTACT,
     loadChildren:()=>import("./pages/contact-us/contact-us.module").then((m)=>m.ContactUsModule)
-  }
+  },
+  {
+    path:AppConst.MAIN_ROUTES.ABOUT,
+    loadChildren:()=>import("./pages/about-us/about-us.module").then((m)=>m.AboutUsModule)
+  },
 ];
 
 @NgModule({
