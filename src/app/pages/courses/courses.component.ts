@@ -18,6 +18,8 @@ export class CoursesComponent {
   totalItems = 0;
   totalPages = 0;
   pages: number[] = [];
+  filterCourses : any
+  searchTerm: string = '';
 
   constructor(public courseService: CourseService) {}
 
@@ -38,12 +40,24 @@ export class CoursesComponent {
     this.courseService.getCourses().then((res) => {
       if (res.status == 1) {
         this.courses = res.data;
+        this.filterCourses = res.data
         this.totalItems = this.courses.length;
         this.calculateTotalPages();
       }
     });
   }
 
+  onsearch(){
+    this.filterCourses = [];
+    if (this.searchTerm.trim() !== '') {
+      this.filterCourses = this.courses.filter(x => {
+        const name = x.course_name && x.course_name.toString().toLowerCase().includes(this.searchTerm.trim().toLowerCase()); 
+        return name
+      });
+    }else{
+      this.filterCourses = [...this.courses];
+    }
+  }
   calculateTotalPages() {
     this.totalPages = Math.ceil(this.totalItems / this.itemsPerPage);
     this.pages = Array(this.totalPages)

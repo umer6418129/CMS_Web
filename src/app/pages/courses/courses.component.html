@@ -8,17 +8,15 @@
             <div class="col-lg-12">
                 <div class="courses-top-search">
                     <div class="courses-search float-right">
-                        <form action="#">
-                            <input type="text" placeholder="Search">
-                            <button type="button"><i class="fa fa-search"></i></button>
-                        </form>
+                        <input type="text" [(ngModel)]="searchTerm" (input)="onsearch()" placeholder="Search">
+                        <button type="button"><i class="fa fa-search"></i></button>
                     </div> <!-- courses search -->
                 </div> <!-- courses top search -->
             </div>
         </div> <!-- row -->
         <div class="row">
             <div class="col-lg-4"
-                *ngFor="let item of courses.slice((currentPage - 1) * itemsPerPage, currentPage * itemsPerPage)">
+                *ngFor="let item of filterCourses.slice((currentPage - 1) * itemsPerPage, currentPage * itemsPerPage)">
                 <app-featured-course-card [data]="item"></app-featured-course-card>
             </div>
         </div>
