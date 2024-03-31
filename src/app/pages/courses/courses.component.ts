@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
+import { AppConst } from 'src/app/app.Const';
 import { CourseService } from 'src/app/services/course.service';
 
 @Component({
@@ -21,7 +23,10 @@ export class CoursesComponent {
   filterCourses : any
   searchTerm: string = '';
 
-  constructor(public courseService: CourseService) {}
+  constructor(
+    public courseService: CourseService,
+    public router : Router
+    ) {}
 
   ngOnInit(): void {
     this.getFeturedCourses();
@@ -46,7 +51,6 @@ export class CoursesComponent {
       }
     });
   }
-
   onsearch(){
     this.filterCourses = [];
     if (this.searchTerm.trim() !== '') {

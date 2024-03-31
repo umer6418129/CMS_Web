@@ -3,6 +3,7 @@ export class AppConst {
         Home: 'home',
         PROPERTIES: 'properties',
         COURSES : 'courses',
+        DETAILS : 'details',
         ABOUT: 'about-us',
         FAQ: 'faqs',
         CONTACT: 'contact-us',
