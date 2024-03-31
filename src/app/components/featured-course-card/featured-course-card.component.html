@@ -1,33 +1,25 @@
-<div class="col-lg-4" *ngFor="let item of data">
-    <div class="singel-course">
-        <div class="thum">
-            <div class="image">
-                <img src="{{ this.baseUrl + item.displayImage }}" alt="Course">
+<div class="singel-course mt-3">
+    <div class="thum">
+        <div class="image">
+            <img src="{{ this.baseUrl + data.displayImage }}" alt="Course">
+        </div>
+    </div>
+    <div class="cont">
+        <ul>
+            <li><i class="fa fa-star"></i></li>
+            <li><i class="fa fa-star"></i></li>
+            <li><i class="fa fa-star"></i></li>
+            <li><i class="fa fa-star"></i></li>
+            <li><i class="fa fa-star"></i></li>
+        </ul>
+        <span>({{ data.reviewsCount }} Reviews)</span><br>
+        <a href="courses-singel.html"><h4>{{ data.course_name }}</h4></a>
+        <div class="course-teacher mt-3">
+            <div class="admin">
+                <ul>
+                    <li><a href="#"><i class="fa fa-user"></i><span>{{ data.stdCount }}</span></a></li>
+                </ul>
             </div>
         </div>
-        <div class="cont">
-            <ul>
-                <li><i class="fa fa-star"></i></li>
-                <li><i class="fa fa-star"></i></li>
-                <li><i class="fa fa-star"></i></li>
-                <li><i class="fa fa-star"></i></li>
-                <li><i class="fa fa-star"></i></li>
-            </ul>
-            <span>({{ item.reviewsCount }} Reviws)</span>
-            <a href="courses-singel.html"><h4>{{ item.course_name }}</h4></a>
-            <div class="course-teacher">
-                <!-- <div class="thum">
-                    <a href="#"><img src="assets/images/course/teacher/t-1.jpg" alt="teacher"></a>
-                </div>
-                <div class="name">
-                    <a href="#"><h6>Mark anthem</h6></a>
-                </div> -->
-                <div class="admin">
-                    <ul>
-                        <li><a href="#"><i class="fa fa-user"></i><span>{{ item.stdCount }}</span></a></li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </div> <!-- singel course -->
-</div>
+    </div>
+</div> <!-- single course -->

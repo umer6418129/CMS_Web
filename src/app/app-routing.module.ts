@@ -19,6 +19,10 @@ const routes: Routes = [
     path:AppConst.MAIN_ROUTES.ABOUT,
     loadChildren:()=>import("./pages/about-us/about-us.module").then((m)=>m.AboutUsModule)
   },
+  {
+    path:AppConst.MAIN_ROUTES.COURSES,
+    loadChildren:()=>import("./pages/courses/courses.module").then((m)=>m.CoursesModule)
+  },
 ];
 
 @NgModule({

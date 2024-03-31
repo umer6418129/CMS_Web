@@ -16,7 +16,7 @@ export class NavService {
     },
     {
       path: AppConst.MAIN_ROUTES.COURSES,
-      title: "FAQ's",
+      title: "Courses",
     },
     {
       path: AppConst.MAIN_ROUTES.CONTACT,

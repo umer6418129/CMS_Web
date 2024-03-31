@@ -19,4 +19,15 @@ export class CourseService {
         });
     });
   }
+  getCourses(): Promise<any> {
+    return new Promise((resolve, error) => {
+      this.baseSerive
+        .Get(AppConst.URL_REQUEST.courses)
+        .then((res: any) => {
+          if (res != null && res != '') {
+            return resolve(res);
+          }
+        });
+    });
+  }
 }

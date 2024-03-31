@@ -1,0 +1,47 @@
+<app-page-banner [data]="bannerData"></app-page-banner>
+<div class="{{ featuredCourses.length < 3 ? 'd-none' : ''  }}">
+    <app-featured-courses [data]="featuredCourses"></app-featured-courses>
+</div>
+<section id="courses-part" class="pb-100 gray-bg">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="courses-top-search">
+                    <div class="courses-search float-right">
+                        <form action="#">
+                            <input type="text" placeholder="Search">
+                            <button type="button"><i class="fa fa-search"></i></button>
+                        </form>
+                    </div> <!-- courses search -->
+                </div> <!-- courses top search -->
+            </div>
+        </div> <!-- row -->
+        <div class="row">
+            <div class="col-lg-4"
+                *ngFor="let item of courses.slice((currentPage - 1) * itemsPerPage, currentPage * itemsPerPage)">
+                <app-featured-course-card [data]="item"></app-featured-course-card>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-12">
+                <nav class="courses-pagination mt-50">
+                    <ul class="pagination justify-content-center">
+                        <li class="page-item" (click)="prevPage()">
+                            <a aria-label="Previous">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                        </li>
+                        <li class="page-item" *ngFor="let page of pages" [ngClass]="{'active': currentPage === page}">
+                            <a (click)="setPage(page)">{{ page }}</a>
+                        </li>
+                        <li class="page-item" (click)="nextPage()">
+                            <a aria-label="Next">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </div> <!-- container -->
+</section>

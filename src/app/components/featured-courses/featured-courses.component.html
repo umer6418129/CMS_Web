@@ -10,37 +10,7 @@
         </div> <!-- row -->
         <div class="row course-slied mt-30">
             <div class="col-lg-4" *ngFor="let item of data">
-                <div class="singel-course">
-                    <div class="thum">
-                        <div class="image">
-                            <img src="{{ item.displayImage != null ? this.baseUrl +  item.displayImage : 'assets/images/course/cu-1.jpg' }}" alt="Course">
-                        </div>
-                    </div>
-                    <div class="cont">
-                        <ul>
-                            <li><i class="fa fa-star"></i></li>
-                            <li><i class="fa fa-star"></i></li>
-                            <li><i class="fa fa-star"></i></li>
-                            <li><i class="fa fa-star"></i></li>
-                            <li><i class="fa fa-star"></i></li>
-                        </ul>
-                        <span>({{ item.reviewsCount }} Reviws)</span><br>
-                        <a href="courses-singel.html"><h4>{{ item.course_name }}</h4></a>
-                        <div class="course-teacher">
-                            <!-- <div class="thum">
-                                <a href="#"><img src="assets/images/course/teacher/t-1.jpg" alt="teacher"></a>
-                            </div>
-                            <div class="name">
-                                <a href="#"><h6>Mark anthem</h6></a>
-                            </div> -->
-                            <div class="admin">
-                                <ul>
-                                    <li><a href="#"><i class="fa fa-user"></i><span>{{ item.stdCount }}</span></a></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div> <!-- singel course -->
+                <app-featured-course-card [data]="item"></app-featured-course-card>
             </div>
         </div> <!-- course slied -->
     </div> <!-- container -->
