@@ -30,4 +30,16 @@ export class CourseService {
         });
     });
   }
+
+  getCourseById(id:any):Promise<any>{
+    return new Promise((resolve, error) => {
+      this.baseSerive
+        .Get(AppConst.URL_REQUEST.courses + "/" + id)
+        .then((res: any) => {
+          if (res != null && res != '') {
+            return resolve(res);
+          }
+        });
+    });
+  }
 }
