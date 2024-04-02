@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { CourseService } from 'src/app/services/course.service';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-course-details',
@@ -25,6 +26,7 @@ export class CourseDetailsComponent {
     pageTitle: 'Courses/' + this.courseName,
     bgImg: 'assets/images/page-banner-2.jpg',
   };
+  baseUrl: any ;
 
   constructor(
     public courseService: CourseService,
@@ -33,6 +35,7 @@ export class CourseDetailsComponent {
   ) {}
 
   ngOnInit(): void {
+    this.baseUrl = environment.baseUrl
     this.route.params.subscribe((params) => {
       this.id = params['id'];
       if (this.id != null) {
