@@ -12,6 +12,7 @@ export class CoursesComponent {
   bannerData: any = {
     pageTitle: 'Courses',
     bgImg: 'assets/images/page-banner-2.jpg',
+    breadcrumbValue : 'Courses',
   };
   featuredCourses: any;
   courses: any[] = [];

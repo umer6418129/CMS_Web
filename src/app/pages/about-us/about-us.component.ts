@@ -8,6 +8,7 @@ declare var $: any;
 export class AboutUsComponent {
   bannerData: any = {
     pageTitle: 'About-Us',
+    breadcrumbValue : 'About-Us',
     bgImg: 'assets/images/page-banner-1.jpg',
   };
 

@@ -92,110 +92,50 @@
                             </div>
                             <div class="tab-pane fade" id="reviews" role="tabpanel" aria-labelledby="reviews-tab">
                                 <div class="reviews-cont">
-                                    <div class="title">
+                                    <div class="title" *ngIf="data.reviews.length > 0">
                                         <h6>Student Reviews</h6>
                                     </div>
                                     <ul>
-                                        <li>
+                                        <li *ngFor="let item of data.reviews">
                                             <div class="singel-reviews">
                                                 <div class="reviews-author">
                                                     <div class="author-thum">
-                                                        <img src="images/review/r-1.jpg" alt="Reviews">
-                                                    </div>
+                                                        <div class="author-img" [style.background-image]="'url(' + (item.profile != null ? this.baseUrl + item.profile : 'assets/images/instructor/i-1.jpg') + ')'"></div>
+                                                    </div>                                                    
                                                     <div class="author-name">
-                                                        <h6>Bobby Aktar</h6>
-                                                        <span>April 03, 2019</span>
+                                                        <h6>{{ item.name }}</h6>
                                                     </div>
                                                 </div>
                                                 <div class="reviews-description pt-20">
-                                                    <p>There are many variations of passages of Lorem Ipsum available,
-                                                        but the majority have suffered alteration in some form, by
-                                                        injected humour, or randomised words which.</p>
-                                                    <div class="rating">
-                                                        <ul>
-                                                            <li><i class="fa fa-star"></i></li>
-                                                            <li><i class="fa fa-star"></i></li>
-                                                            <li><i class="fa fa-star"></i></li>
-                                                            <li><i class="fa fa-star"></i></li>
-                                                            <li><i class="fa fa-star"></i></li>
-                                                        </ul>
-                                                        <span>/ 5 Star</span>
-                                                    </div>
-                                                </div>
-                                            </div> <!-- singel reviews -->
-                                        </li>
-                                        <li>
-                                            <div class="singel-reviews">
-                                                <div class="reviews-author">
-                                                    <div class="author-thum">
-                                                        <img src="images/review/r-2.jpg" alt="Reviews">
-                                                    </div>
-                                                    <div class="author-name">
-                                                        <h6>Humayun Ahmed</h6>
-                                                        <span>April 13, 2019</span>
-                                                    </div>
-                                                </div>
-                                                <div class="reviews-description pt-20">
-                                                    <p>There are many variations of passages of Lorem Ipsum available,
-                                                        but the majority have suffered alteration in some form, by
-                                                        injected humour, or randomised words which.</p>
-                                                    <div class="rating">
-                                                        <ul>
-                                                            <li><i class="fa fa-star"></i></li>
-                                                            <li><i class="fa fa-star"></i></li>
-                                                            <li><i class="fa fa-star"></i></li>
-                                                            <li><i class="fa fa-star"></i></li>
-                                                            <li><i class="fa fa-star"></i></li>
-                                                        </ul>
-                                                        <span>/ 5 Star</span>
-                                                    </div>
+                                                    <p>{{ item.review }}</p>
                                                 </div>
                                             </div> <!-- singel reviews -->
                                         </li>
                                     </ul>
                                     <div class="title pt-15">
-                                        <h6>Leave A Comment</h6>
+                                        <h6>Leave your feedback</h6>
                                     </div>
                                     <div class="reviews-form">
                                         <form action="#">
                                             <div class="row">
-                                                <div class="col-md-6">
+                                                <div class="col-md-12">
                                                     <div class="form-singel">
-                                                        <input type="text" placeholder="Fast name">
+                                                        <input type="text" placeholder="Enter your student id">
                                                     </div>
                                                 </div>
-                                                <div class="col-md-6">
+                                                <!-- <div class="col-md-6">
                                                     <div class="form-singel">
                                                         <input type="text" placeholder="Last Name">
                                                     </div>
-                                                </div>
+                                                </div> -->
                                                 <div class="col-lg-12">
                                                     <div class="form-singel">
-                                                        <div class="rate-wrapper">
-                                                            <div class="rate-label">Your Rating:</div>
-                                                            <div class="rate">
-                                                                <div class="rate-item"><i class="fa fa-star"
-                                                                        aria-hidden="true"></i></div>
-                                                                <div class="rate-item"><i class="fa fa-star"
-                                                                        aria-hidden="true"></i></div>
-                                                                <div class="rate-item"><i class="fa fa-star"
-                                                                        aria-hidden="true"></i></div>
-                                                                <div class="rate-item"><i class="fa fa-star"
-                                                                        aria-hidden="true"></i></div>
-                                                                <div class="rate-item"><i class="fa fa-star"
-                                                                        aria-hidden="true"></i></div>
-                                                            </div>
-                                                        </div>
+                                                        <textarea placeholder="Feedback"></textarea>
                                                     </div>
                                                 </div>
                                                 <div class="col-lg-12">
                                                     <div class="form-singel">
-                                                        <textarea placeholder="Comment"></textarea>
-                                                    </div>
-                                                </div>
-                                                <div class="col-lg-12">
-                                                    <div class="form-singel">
-                                                        <button type="button" class="main-btn">Post Comment</button>
+                                                        <button type="button" class="main-btn">Post Feedback</button>
                                                     </div>
                                                 </div>
                                             </div> <!-- row -->
@@ -214,9 +154,9 @@
                         <div class="course-features mt-30">
                             <h4>Course Features </h4>
                             <ul>
-                                <li><i class="fa fa-clock-o"></i>Duaration : <span>10 Hours</span></li>
-                                <li><i class="fa fa-clone"></i>Classes : <span>09</span></li>
-                                <li><i class="fa fa-user-o"></i>Students : <span>100</span></li>
+                                <li><i class="fa fa-clock-o"></i>Duaration : <span>{{ data.duaration }}</span></li>
+                                <li><i class="fa fa-clone"></i>Classes : <span>{{ data.no_of_classess }}</span></li>
+                                <li><i class="fa fa-user-o"></i>Students : <span>{{ data.stdCount }}</span></li>
                             </ul>
                             <div class="price-button pt-10">
                                 <a href="#" class="main-btn w-100 ">Enroll Now</a>

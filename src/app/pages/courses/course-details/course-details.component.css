@@ -8,3 +8,17 @@
     top: 15px;
     right: 15px;
 }
+.author-thum {
+    width: 50px; /* Set the width of the circular container */
+    height: 50px; /* Set the height of the circular container */
+    overflow: hidden; /* Hide any content that exceeds the circular container */
+    border-radius: 50%; /* Make the container circular */
+}
+
+.author-img {
+    width: 100%; /* Ensure the background image covers the entire container */
+    height: 100%; /* Ensure the background image covers the entire container */
+    background-size: cover; /* Cover the entire container with the background image */
+    background-position: center; /* Center the background image within the container */
+}
+

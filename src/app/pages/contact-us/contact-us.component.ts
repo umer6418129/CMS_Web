@@ -13,6 +13,7 @@ export class ContactUsComponent {
   bannerData: any = {
     pageTitle: 'Contact-Us',
     bgImg: 'assets/images/page-banner-6.jpg',
+    breadcrumbValue : 'Contact-Us',
   };
   contactUsFormObj: any = {
     full_name: '',

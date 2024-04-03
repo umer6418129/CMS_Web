@@ -23,8 +23,9 @@ export class CourseDetailsComponent {
     subjects: [],
   };
   bannerData: any = {
-    pageTitle: 'Courses/' + this.courseName,
+    pageTitle: 'Courses',
     bgImg: 'assets/images/page-banner-2.jpg',
+    breadcrumbValue : '',
   };
   baseUrl: any ;
 
@@ -44,12 +45,15 @@ export class CourseDetailsComponent {
       }
     });
   }
+  
 
   getCourse(id: any) {
     this.courseService.getCourseById(id).then((res: any) => {
       if (res.status == 1) {
         this.data = res.data;
-        console.log(this.data);
+        this.courseName = this.data.course_name;
+        this.bannerData.breadcrumbValue = 'Courses / ' + this.courseName;
+        console.log(this.courseName);
       }
     });
   }
