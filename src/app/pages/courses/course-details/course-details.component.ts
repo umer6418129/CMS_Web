@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 import { CourseService } from 'src/app/services/course.service';
 import { environment } from 'src/environments/environment';
 
@@ -11,6 +12,12 @@ import { environment } from 'src/environments/environment';
 export class CourseDetailsComponent {
   courseName: any = '';
   id: any;
+  feedbackObj :any = {
+    id: 0,
+    std_id: '',
+    courseId: 0,
+    description: ''
+  }
   data: any = {
     id: -1,
     course_name: '',
@@ -21,6 +28,7 @@ export class CourseDetailsComponent {
     stdCount: 0,
     category: null,
     subjects: [],
+    reviews : []
   };
   bannerData: any = {
     pageTitle: 'Courses',
@@ -32,7 +40,8 @@ export class CourseDetailsComponent {
   constructor(
     public courseService: CourseService,
     public router: Router,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    public toastr: ToastrService,
   ) {}
 
   ngOnInit(): void {
@@ -41,11 +50,26 @@ export class CourseDetailsComponent {
       this.id = params['id'];
       if (this.id != null) {
         this.getCourse(this.id);
-        console.log('ID:', this.id);
+        this.feedbackObj.courseId = this.id;
+        console.log('ID:', this.feedbackObj.courseId);
       }
     });
   }
   
+  Validation(): any {
+    if (
+      this.feedbackObj.std_id == '' ||
+      this.feedbackObj.std_id == null
+    ) {
+      return this.toastr.error('Student id is Required');
+    }
+    if (
+      this.feedbackObj.description == '' ||
+      this.feedbackObj.description == null
+    ) {
+      return this.toastr.error('Feedback is Required');
+    }
+  }
 
   getCourse(id: any) {
     this.courseService.getCourseById(id).then((res: any) => {
@@ -56,5 +80,32 @@ export class CourseDetailsComponent {
         console.log(this.courseName);
       }
     });
+  }
+
+  postFeedback():any{
+    try {
+      if (this.Validation()) {
+        return true;
+      } else {
+        this.courseService.postFeedback(this.feedbackObj).then((res) => {
+          if (res.status == 1) {
+            this.makeFeildEmpty();
+            this.getCourse(this.id);
+            this.toastr.success('Form successfully submitted');
+          } else {
+            this.toastr.error(res.message);
+          }
+        });
+      }
+    } catch (error) {
+      this.toastr.error('something went wrong');
+      console.log(error);
+    }
+  }
+
+  makeFeildEmpty() :void {
+    this.feedbackObj.std_id = '';
+    this.feedbackObj.description = '';
+    window.scrollTo(0, 0);
   }
 }

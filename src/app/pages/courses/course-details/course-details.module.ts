@@ -12,8 +12,8 @@ import { SharedModule } from 'src/app/modules/shared/shared.module';
   ],
   imports: [
     CommonModule,
+    CourseDetailsRoutingModule,
     SharedModule,
-    CourseDetailsRoutingModule
   ]
 })
 export class CourseDetailsModule { }

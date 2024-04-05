@@ -42,4 +42,15 @@ export class CourseService {
         });
     });
   }
+  postFeedback(param: any): Promise<any> {
+    return new Promise((resolve, error) => {
+      this.baseSerive
+        .Post(AppConst.URL_REQUEST.feedBack, param)
+        .then((res: any) => {
+          if (res != null && res != '') {
+            return resolve(res);
+          }
+        });
+    });
+  }
 }

@@ -18,6 +18,7 @@ export class AppConst {
         ContactUs: 'ContactUs',
         feturedCourses: 'Courses/featured',
         courses: 'Courses',
+        feedBack: 'FeedBack',
 
     }
 }
