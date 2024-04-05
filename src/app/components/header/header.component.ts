@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
+import { AppConst } from 'src/app/app.Const';
 
 @Component({
   selector: 'app-header',
@@ -7,4 +9,10 @@ import { Component } from '@angular/core';
 })
 export class HeaderComponent {
 
+  constructor(public router : Router){
+
+  }
+  navigateToRegisteration(){
+    this.router.navigate([AppConst.MAIN_ROUTES.REGISTER]);
+  }
 }

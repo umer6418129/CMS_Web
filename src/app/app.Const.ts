@@ -11,6 +11,8 @@ export class AppConst {
         LOGIN: 'login',
         PORTAL: 'portal',
         CART: 'cart',
+        REGISTER: 'register',
+        ADDMISSION: 'addmission',
     }
     static URL_REQUEST = {
         ContactUs: 'ContactUs',
