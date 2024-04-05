@@ -13,6 +13,7 @@ export class AppConst {
         CART: 'cart',
         REGISTER: 'register',
         ADDMISSION: 'addmission',
+        FACILITIES: 'facilities',
     }
     static URL_REQUEST = {
         ContactUs: 'ContactUs',

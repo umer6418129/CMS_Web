@@ -12,7 +12,11 @@ export class NavService {
     },
     {
       path: AppConst.MAIN_ROUTES.ABOUT,
-      title: 'about us',
+      title: 'the collage',
+    },
+    {
+      path: AppConst.MAIN_ROUTES.FACILITIES,
+      title: 'facilities',
     },
     {
       path: AppConst.MAIN_ROUTES.COURSES,

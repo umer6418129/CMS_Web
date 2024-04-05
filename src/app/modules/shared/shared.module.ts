@@ -11,6 +11,7 @@ import { FeaturedCoursesComponent } from 'src/app/components/featured-courses/fe
 import { FeaturedCourseCardComponent } from 'src/app/components/featured-course-card/featured-course-card.component';
 import { OurMissionComponent } from 'src/app/components/our-mission/our-mission.component';
 import { PartnersComponent } from 'src/app/components/partners/partners.component';
+import { FacilitiesComponentComponent } from 'src/app/components/facilities-component/facilities-component.component';
 const ngxUiLoaderConfig: NgxUiLoaderConfig = {
   bgsColor: '#ffc107',
   bgsOpacity: 0,
@@ -21,9 +22,9 @@ const ngxUiLoaderConfig: NgxUiLoaderConfig = {
   pbDirection: 'ltr',
   pbThickness: 5,
   hasProgressBar: true,
-  text: "",
-  textColor: "#ffc107",
-  textPosition: "center-center",
+  text: '',
+  textColor: '#ffc107',
+  textPosition: 'center-center',
   fgsColor: '#ffc107',
   fgsPosition: 'center-center',
   fgsSize: 0,
@@ -31,8 +32,38 @@ const ngxUiLoaderConfig: NgxUiLoaderConfig = {
 };
 
 @NgModule({
-  declarations: [PreLoaderComponent, HeaderComponent,OurMissionComponent,PartnersComponent,FeaturedCourseCardComponent,PageBannerComponent,FeaturedCoursesComponent,],
-  imports: [ReactiveFormsModule,CommonModule,FormsModule,HttpClientModule,ToastrModule.forRoot(),NgxUiLoaderModule.forRoot(ngxUiLoaderConfig),],
-  exports: [ReactiveFormsModule,CommonModule,PreLoaderComponent ,HttpClientModule ,HeaderComponent,OurMissionComponent,PartnersComponent,FeaturedCourseCardComponent,PageBannerComponent,FeaturedCoursesComponent,FormsModule,NgxUiLoaderModule,],
+  declarations: [
+    PreLoaderComponent,
+    HeaderComponent,
+    OurMissionComponent,
+    PartnersComponent,
+    FeaturedCourseCardComponent,
+    PageBannerComponent,
+    FeaturedCoursesComponent,
+    FacilitiesComponentComponent,
+  ],
+  imports: [
+    ReactiveFormsModule,
+    CommonModule,
+    FormsModule,
+    HttpClientModule,
+    ToastrModule.forRoot(),
+    NgxUiLoaderModule.forRoot(ngxUiLoaderConfig),
+  ],
+  exports: [
+    ReactiveFormsModule,
+    CommonModule,
+    PreLoaderComponent,
+    HttpClientModule,
+    HeaderComponent,
+    OurMissionComponent,
+    PartnersComponent,
+    FeaturedCourseCardComponent,
+    PageBannerComponent,
+    FeaturedCoursesComponent,
+    FacilitiesComponentComponent,
+    FormsModule,
+    NgxUiLoaderModule,
+  ],
 })
 export class SharedModule {}

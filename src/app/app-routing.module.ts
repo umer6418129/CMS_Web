@@ -27,6 +27,10 @@ const routes: Routes = [
     path:AppConst.MAIN_ROUTES.REGISTER,
     loadChildren:()=>import("./pages/student-registeration/student-registeration.module").then((m)=>m.StudentRegisterationModule)
   },
+  {
+    path:AppConst.MAIN_ROUTES.FACILITIES,
+    loadChildren:()=>import("./pages/facilities/facilities.module").then((m)=>m.FacilitiesModule)
+  },
 ];
 
 @NgModule({
