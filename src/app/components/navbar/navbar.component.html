@@ -12,17 +12,17 @@
 
                     <div class="collapse navbar-collapse sub-menu-bar" id="navbarSupportedContent">
                         <ul class="navbar-nav mr-auto" *ngFor="let item of navItems">
-                            <li class="nav-item" (click)="navigate(item.path)">
+                            <li *ngIf="item.isChild == false" class="nav-item" (click)="navigate(item.path)">
                                 <a>{{ item.title }}</a>
                             </li>
                             <!-- example of dropdown into navbar of this theme -->
-                            <!-- <li class="nav-item">
-                                <a href="courses.html">Courses</a>
+                            <li *ngIf="item.isChild == true" class="nav-item">
+                                <a>{{ item.title }}</a>
                                 <ul class="sub-menu">
                                     <li><a href="courses.html">Courses</a></li>
                                     <li><a href="courses-singel.html">Course Singel</a></li>
                                 </ul>
-                            </li> -->
+                            </li>
                         </ul>
                     </div>
                 </nav> <!-- nav -->
