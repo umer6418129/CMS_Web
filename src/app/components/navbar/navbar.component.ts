@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { AppConst } from 'src/app/app.Const';
 import { NavService } from 'src/app/services/nav.service';
 
 @Component({
@@ -14,5 +15,8 @@ export class NavbarComponent {
   }
   navigate(path:any){
     this.router.navigate([path]);
+  }
+  navigateToDepart(id : number){
+    this.router.navigate([AppConst.MAIN_ROUTES.DEPARTMENT + "/" + id]);
   }
 }

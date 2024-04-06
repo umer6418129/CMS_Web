@@ -31,6 +31,10 @@ const routes: Routes = [
     path:AppConst.MAIN_ROUTES.FACILITIES,
     loadChildren:()=>import("./pages/facilities/facilities.module").then((m)=>m.FacilitiesModule)
   },
+  {
+    path:AppConst.MAIN_ROUTES.DEPARTMENT + "/:id",
+    loadChildren:()=>import("./pages/departments/departments.module").then((m)=>m.DepartmentsModule)
+  }
 ];
 
 @NgModule({

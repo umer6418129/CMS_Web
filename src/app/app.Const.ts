@@ -14,12 +14,14 @@ export class AppConst {
         REGISTER: 'register',
         ADDMISSION: 'addmission',
         FACILITIES: 'facilities',
+        DEPARTMENT: 'Department',
     }
     static URL_REQUEST = {
         ContactUs: 'ContactUs',
         feturedCourses: 'Courses/featured',
         courses: 'Courses',
         feedBack: 'FeedBack',
+        department: 'Department',
 
     }
 }

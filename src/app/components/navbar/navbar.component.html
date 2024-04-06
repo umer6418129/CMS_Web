@@ -16,25 +16,16 @@
                                 <a>{{ item.title }}</a>
                             </li>
                             <!-- example of dropdown into navbar of this theme -->
-                            <li *ngIf="item.isChild == true" class="nav-item">
+                            <li *ngIf="item.isChild == true && item.type == 'department'" class="nav-item">
                                 <a>{{ item.title }}</a>
-                                <ul class="sub-menu">
-                                    <li><a href="courses.html">Courses</a></li>
-                                    <li><a href="courses-singel.html">Course Singel</a></li>
+                                <ul class="sub-menu" *ngFor="let child of item.childs">
+                                    <li (click)="navigateToDepart(child.id)"><a>{{ child.name }}</a></li>
                                 </ul>
                             </li>
                         </ul>
                     </div>
                 </nav> <!-- nav -->
             </div>
-            <!-- <div class="col-lg-2 col-md-2 col-sm-3 col-4">
-                <div class="right-icon text-right">
-                    <ul>
-                        <li><a href="#" id="search"><i class="fa fa-search"></i></a></li>
-                        <li><a href="#"><i class="fa fa-shopping-bag"></i><span>0</span></a></li>
-                    </ul>
-                </div>
-            </div> -->
         </div> <!-- row -->
     </div> <!-- container -->
 </div>
