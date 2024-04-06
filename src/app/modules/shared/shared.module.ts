@@ -12,6 +12,8 @@ import { FeaturedCourseCardComponent } from 'src/app/components/featured-course-
 import { OurMissionComponent } from 'src/app/components/our-mission/our-mission.component';
 import { PartnersComponent } from 'src/app/components/partners/partners.component';
 import { FacilitiesComponentComponent } from 'src/app/components/facilities-component/facilities-component.component';
+import { FacultiesGrdComponent } from 'src/app/components/faculties-grd/faculties-grd.component';
+import { FacultiesCardsComponent } from 'src/app/components/faculties-cards/faculties-cards.component';
 const ngxUiLoaderConfig: NgxUiLoaderConfig = {
   bgsColor: '#ffc107',
   bgsOpacity: 0,
@@ -41,6 +43,8 @@ const ngxUiLoaderConfig: NgxUiLoaderConfig = {
     PageBannerComponent,
     FeaturedCoursesComponent,
     FacilitiesComponentComponent,
+    FacultiesGrdComponent,
+    FacultiesCardsComponent,
   ],
   imports: [
     ReactiveFormsModule,
@@ -62,6 +66,8 @@ const ngxUiLoaderConfig: NgxUiLoaderConfig = {
     PageBannerComponent,
     FeaturedCoursesComponent,
     FacilitiesComponentComponent,
+    FacultiesGrdComponent,
+    FacultiesCardsComponent,
     FormsModule,
     NgxUiLoaderModule,
   ],

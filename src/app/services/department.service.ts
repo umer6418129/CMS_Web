@@ -19,4 +19,15 @@ export class DepartmentService {
         });
     });
   }
+  getDepartmentById(id:any): Promise<any> {
+    return new Promise((resolve, error) => {
+      this.baseSerive
+        .Get(AppConst.URL_REQUEST.department + "/" + 1)
+        .then((res: any) => {
+          if (res != null && res != '') {
+            return resolve(res);
+          }
+        });
+    });
+  }
 }
