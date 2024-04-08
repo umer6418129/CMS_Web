@@ -14,7 +14,8 @@ export class AppConst {
         REGISTER: 'register',
         ADDMISSION: 'addmission',
         FACILITIES: 'facilities',
-        DEPARTMENT: 'Department',
+        DEPARTMENT: 'department',
+        FACULTIES: 'faculties',
     }
     static URL_REQUEST = {
         ContactUs: 'ContactUs',

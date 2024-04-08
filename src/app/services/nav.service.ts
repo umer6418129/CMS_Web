@@ -30,6 +30,12 @@ export class NavService {
       type:null
     },
     {
+      path: AppConst.MAIN_ROUTES.FACULTIES,
+      title: 'faculties',
+      isChild: false,
+      type:null
+    },
+    {
       path: AppConst.MAIN_ROUTES.CONTACT,
       title: 'contact us',
       isChild: false,
