@@ -17,7 +17,7 @@ export class CoursesComponent {
   featuredCourses: any;
   courses: any[] = [];
   currentPage = 1;
-  itemsPerPage = 3; // Adjust according to your preference
+  itemsPerPage = 3;
   totalItems = 0;
   totalPages = 0;
   pages: number[] = [];

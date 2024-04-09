@@ -23,6 +23,7 @@ export class AppConst {
         courses: 'Courses',
         feedBack: 'FeedBack',
         department: 'Department',
+        Faculties: 'Faculties',
 
     }
 }

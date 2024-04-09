@@ -1,1 +1,31 @@
-<app-faculties-cards></app-faculties-cards>
+<!-- <app-faculties-cards></app-faculties-cards> -->
+<section id="teachers-page" class="pt-90 pb-120 gray-bg">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-3 col-sm-6" *ngFor="let item of data.slice((currentPage - 1) * itemsPerPage, currentPage * itemsPerPage)">
+                <app-faculties-cards [data]="item"></app-faculties-cards>
+            </div>
+        </div> <!-- row -->
+        <div class="row">
+            <div class="col-lg-12">
+                <nav class="courses-pagination mt-50">
+                    <ul class="pagination justify-content-center">
+                        <li class="page-item" (click)="prevPage()">
+                            <a aria-label="Previous">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                        </li>
+                        <li class="page-item" *ngFor="let page of pages" [ngClass]="{'active': currentPage === page}">
+                            <a (click)="setPage(page)">{{ page }}</a>
+                        </li>
+                        <li class="page-item" (click)="nextPage()">
+                            <a aria-label="Next">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </div>
+</section>

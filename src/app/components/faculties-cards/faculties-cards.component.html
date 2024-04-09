@@ -1,1 +1,11 @@
-<p>faculties-cards works!</p>
+<div class="singel-teachers mt-30 text-center">
+    <div class="image">
+        <img class="faculty-image" src="{{ data && data.profile_image ? this.baseUrl + data.profile_image : 'assets/images/teachers/t-1.jpg' }}" alt="Teachers">
+    </div>    
+    <div class="cont">
+        <a>
+            <h6>{{ data.name }}</h6>
+        </a>
+        <span>{{ data.type }}</span>
+    </div>
+</div>
