@@ -8,7 +8,7 @@ import { Component, Input } from '@angular/core';
 export class FacultiesGrdComponent {
   @Input() data: any;
   currentPage = 1;
-  itemsPerPage = 8;
+  itemsPerPage = 4;
   totalItems = 0;
   totalPages = 0;
   pages: number[] = [];

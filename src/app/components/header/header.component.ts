@@ -13,6 +13,6 @@ export class HeaderComponent {
 
   }
   navigateToRegisteration(){
-    this.router.navigate([AppConst.MAIN_ROUTES.REGISTER]);
+    this.router.navigate([AppConst.MAIN_ROUTES.COURSES]);
   }
 }
