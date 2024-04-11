@@ -1,14 +1,44 @@
-<section id="regForm" class="py-5 row">
-    <div class="col-12 col-sm-12 col-md-6 col-lg-6">
-        <input type="text" name="" id="" class="form-control">
-    </div>
-    <div class="col-12 col-sm-12 col-md-6 col-lg-6">
-        <input type="text" name="" id="" class="form-control">
-    </div>
-    <div class="col-12 col-sm-12 col-md-6 col-lg-6">
-        <input type="text" name="" id="" class="form-control">
-    </div>
-    <div class="col-12 col-sm-12 col-md-6 col-lg-6">
-        <input type="text" name="" id="" class="form-control">
+<section id="regForm" class="container mx-auto py-5">
+    <div class="row">
+        <div class="mt-2 my-2 col-12 col-md-6">
+            <label for="studentName">Student Name <i class="text-danger">*</i></label>
+            <input type="text" id="studentName" name="studentName" class="form-control">
+        </div>
+        <div class="mt-2 my-2 col-12 col-md-6">
+            <label for="studentEmail">Student Email <i class="text-danger">*</i></label>
+            <input type="email" id="studentEmail" name="studentEmail" class="form-control">
+        </div>
+        <div class="mt-2 my-2 col-12 col-md-6">
+            <label for="fatherName">Student Father Name <i class="text-danger">*</i></label>
+            <input type="text" id="fatherName" name="fatherName" class="form-control">
+        </div>
+        <div class="mt-2 my-2 col-12 col-md-6">
+            <label for="motherName">Student Mother Name <span class="text-secondary">(optional)</span></label>
+            <input type="text" id="motherName" name="motherName" class="form-control">
+        </div>
+        <div class="mt-2 my-2 col-12 col-md-4">
+            <label for="dateOfBirth">Student Date of Birth <i class="text-danger">*</i></label>
+            <input type="date" id="dateOfBirth" name="dateOfBirth" class="form-control">
+        </div>
+        <div class="mt-2 my-2 col-12 col-md-4">
+            <label for="gender">Gender <i class="text-danger">*</i></label>
+            <select id="gender" name="gender" class="form-control">
+                <option value="">Select Gender</option>
+            </select>
+        </div>
+        <div class="mt-2 my-2 col-12 col-md-4">
+            <label for="course">Course <i class="text-danger">*</i></label>
+            <select id="course" name="course" class="form-control">
+                <option value="">Select Course</option>
+            </select>
+        </div>
+        <div class="mt-2 my-2 col-12">
+            <label for="residentialAddress">Student Residential Address <i class="text-danger">*</i></label>
+            <textarea id="residentialAddress" name="residentialAddress" rows="5" class="form-control"></textarea>
+        </div>
+        <div class="mt-2 my-2 col-12">
+            <label for="permanentAddress">Student Permanent Address <i class="text-danger">*</i></label>
+            <textarea id="permanentAddress" name="permanentAddress" rows="5" class="form-control"></textarea>
+        </div>
     </div>
 </section>

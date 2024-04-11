@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
+import { AppConst } from 'src/app/app.Const';
 import { CourseService } from 'src/app/services/course.service';
 import { environment } from 'src/environments/environment';
 
@@ -12,40 +13,40 @@ import { environment } from 'src/environments/environment';
 export class CourseDetailsComponent {
   courseName: any = '';
   id: any;
-  feedbackObj :any = {
+  feedbackObj: any = {
     id: 0,
     std_id: '',
     courseId: 0,
-    description: ''
-  }
+    description: '',
+  };
   data: any = {
     id: -1,
     course_name: '',
     description: null,
     is_available: true,
-    displayImage:'',
+    displayImage: '',
     reviewsCount: 0,
     stdCount: 0,
     category: null,
     subjects: [],
-    reviews : []
+    reviews: [],
   };
   bannerData: any = {
     pageTitle: 'Courses',
     bgImg: 'assets/images/page-banner-2.jpg',
-    breadcrumbValue : '',
+    breadcrumbValue: '',
   };
-  baseUrl: any ;
+  baseUrl: any;
 
   constructor(
     public courseService: CourseService,
     public router: Router,
     private route: ActivatedRoute,
-    public toastr: ToastrService,
+    public toastr: ToastrService
   ) {}
 
   ngOnInit(): void {
-    this.baseUrl = environment.baseUrl
+    this.baseUrl = environment.baseUrl;
     this.route.params.subscribe((params) => {
       this.id = params['id'];
       if (this.id != null) {
@@ -55,12 +56,9 @@ export class CourseDetailsComponent {
       }
     });
   }
-  
+
   Validation(): any {
-    if (
-      this.feedbackObj.std_id == '' ||
-      this.feedbackObj.std_id == null
-    ) {
+    if (this.feedbackObj.std_id == '' || this.feedbackObj.std_id == null) {
       return this.toastr.error('Student id is Required');
     }
     if (
@@ -82,7 +80,7 @@ export class CourseDetailsComponent {
     });
   }
 
-  postFeedback():any{
+  postFeedback(): any {
     try {
       if (this.Validation()) {
         return true;
@@ -103,9 +101,14 @@ export class CourseDetailsComponent {
     }
   }
 
-  makeFeildEmpty() :void {
+  makeFeildEmpty(): void {
     this.feedbackObj.std_id = '';
     this.feedbackObj.description = '';
     window.scrollTo(0, 0);
+  }
+  stdSubmission() {
+    this.router.navigate([
+      AppConst.MAIN_ROUTES.REGISTER + '/' + this.feedbackObj.courseId,
+    ]);
   }
 }
