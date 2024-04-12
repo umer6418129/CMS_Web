@@ -1,12 +1,12 @@
-import { Component, HostListener } from '@angular/core';
+import { Component, HostListener, Input } from '@angular/core';
 
 @Component({
   selector: 'app-profile-image-uploader',
   templateUrl: './profile-image-uploader.component.html',
-  styleUrls: ['./profile-image-uploader.component.css']
+  styleUrls: ['./profile-image-uploader.component.css'],
 })
 export class ProfileImageUploaderComponent {
-
+  @Input() data: any;
   @HostListener('change', ['$event.target'])
   onChange(target: HTMLInputElement) {
     const files = target.files || [];

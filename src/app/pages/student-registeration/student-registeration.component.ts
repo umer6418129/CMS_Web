@@ -10,6 +10,19 @@ import { CourseService } from 'src/app/services/course.service';
 export class StudentRegisterationComponent {
   public genders: any;
   public courses: any;
+  registerObj:any = {
+    id:-1,
+    name:'',
+    email:'',
+    std_father_name:'',
+    std_mother_name:'',
+    std_date_of_birth:'',
+    Gender:'',
+    course_id:'',
+    std_residential_address:'',
+    std_permanent_address:'',
+    profile_image:'',
+  }
   constructor(
     public arrayService: ArraysService,
     public courseService: CourseService
@@ -24,5 +37,10 @@ export class StudentRegisterationComponent {
         this.courses = res.data;
       }
     });
+  }
+
+  submitForm(){
+    console.log(this.registerObj);
+    
   }
 }

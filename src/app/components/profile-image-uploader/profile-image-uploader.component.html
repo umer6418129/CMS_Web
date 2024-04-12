@@ -3,7 +3,7 @@
         <!-- uploaded pic shown here -->
         <img id="profilePic" class="pic" src="https://t3.ftcdn.net/jpg/03/46/83/96/360_F_346839683_6nAPzbhpSkIpb8pmAwufkC7c5eD7wYws.jpg">
 
-        <Input class="uploadProfileInput" type="file" name="profile_pic" id="newProfilePhoto" accept="image/*"
+        <Input class="uploadProfileInput" type="file" id="newProfilePhoto" [(ngModel)]="data" accept="image/*"
             style="opacity: 0;" />
         <label for="newProfilePhoto" class="upload-file-block">
             <div class="text-center">
