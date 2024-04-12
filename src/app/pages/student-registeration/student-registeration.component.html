@@ -1,5 +1,5 @@
 <section id="regForm" class="container mx-auto py-5">
-    <app-profile-image-uploader [data]="registerObj.profile_image"></app-profile-image-uploader>
+    <app-profile-image-uploader (valueChange)='changeValueOfImage($event)'></app-profile-image-uploader>
     <div class="row">
         <div class="mt-2 my-2 col-12 col-md-6">
             <label for="studentName">Student Name <i class="text-danger">*</i></label>

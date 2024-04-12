@@ -1,4 +1,10 @@
-import { Component, HostListener, Input } from '@angular/core';
+import {
+  Component,
+  EventEmitter,
+  HostListener,
+  Input,
+  Output,
+} from '@angular/core';
 
 @Component({
   selector: 'app-profile-image-uploader',
@@ -6,7 +12,9 @@ import { Component, HostListener, Input } from '@angular/core';
   styleUrls: ['./profile-image-uploader.component.css'],
 })
 export class ProfileImageUploaderComponent {
-  @Input() data: any;
+  // @Input() data: any;
+  @Output() valueChange = new EventEmitter();
+  profileImage: any = '';
   @HostListener('change', ['$event.target'])
   onChange(target: HTMLInputElement) {
     const files = target.files || [];
@@ -38,6 +46,7 @@ export class ProfileImageUploaderComponent {
     if (/^image/.test(files[0].type)) {
       reader.readAsDataURL(files[0]);
       reader.onloadend = () => {
+        this.profileImage = reader.result; // Update profileImage with selected image data
         holder.classList.add('uploadInProgress');
         const picElement = holder.querySelector('.pic') as HTMLImageElement;
 
@@ -78,6 +87,9 @@ export class ProfileImageUploaderComponent {
             }
           }
         }, 1500);
+
+        // Emit the profileImage to the parent component
+        this.valueChange.emit({ profileImage: this.profileImage });
       };
     } else {
       wrapper.innerHTML +=
