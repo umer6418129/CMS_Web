@@ -14,6 +14,7 @@ import { PartnersComponent } from 'src/app/components/partners/partners.componen
 import { FacilitiesComponentComponent } from 'src/app/components/facilities-component/facilities-component.component';
 import { FacultiesGrdComponent } from 'src/app/components/faculties-grd/faculties-grd.component';
 import { FacultiesCardsComponent } from 'src/app/components/faculties-cards/faculties-cards.component';
+import { ProfileImageUploaderComponent } from 'src/app/components/profile-image-uploader/profile-image-uploader.component';
 const ngxUiLoaderConfig: NgxUiLoaderConfig = {
   bgsColor: '#ffc107',
   bgsOpacity: 0,
@@ -45,6 +46,7 @@ const ngxUiLoaderConfig: NgxUiLoaderConfig = {
     FacilitiesComponentComponent,
     FacultiesGrdComponent,
     FacultiesCardsComponent,
+    ProfileImageUploaderComponent,
   ],
   imports: [
     ReactiveFormsModule,
@@ -68,6 +70,7 @@ const ngxUiLoaderConfig: NgxUiLoaderConfig = {
     FacilitiesComponentComponent,
     FacultiesGrdComponent,
     FacultiesCardsComponent,
+    ProfileImageUploaderComponent,
     FormsModule,
     NgxUiLoaderModule,
   ],

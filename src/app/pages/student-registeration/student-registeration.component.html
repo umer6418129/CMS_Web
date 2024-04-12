@@ -1,4 +1,5 @@
 <section id="regForm" class="container mx-auto py-5">
+    <app-profile-image-uploader></app-profile-image-uploader>
     <div class="row">
         <div class="mt-2 my-2 col-12 col-md-6">
             <label for="studentName">Student Name <i class="text-danger">*</i></label>
@@ -24,12 +25,14 @@
             <label for="gender">Gender <i class="text-danger">*</i></label>
             <select id="gender" name="gender" class="form-control">
                 <option value="">Select Gender</option>
+                <option value="{{ item.key }}" *ngFor="let item of genders">{{ item.gender }}</option>
             </select>
         </div>
         <div class="mt-2 my-2 col-12 col-md-4">
             <label for="course">Course <i class="text-danger">*</i></label>
             <select id="course" name="course" class="form-control">
                 <option value="">Select Course</option>
+                <option value="{{ item.id }}" *ngFor="let item of courses">{{ item.course_name }}</option>
             </select>
         </div>
         <div class="mt-2 my-2 col-12">

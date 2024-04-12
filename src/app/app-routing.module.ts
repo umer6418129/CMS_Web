@@ -5,7 +5,8 @@ import { AppConst } from './app.Const';
 const routes: Routes = [
   {
     path:'',
-    loadChildren:()=>import("./pages/home/home.module").then((m)=>m.HomeModule)
+    redirectTo: AppConst.MAIN_ROUTES.Home,
+    pathMatch:"full",
   },
   {
     path:AppConst.MAIN_ROUTES.Home,
