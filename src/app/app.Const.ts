@@ -24,6 +24,7 @@ export class AppConst {
         feedBack: 'FeedBack',
         department: 'Department',
         Faculties: 'Faculties',
+        Student: 'Student',
 
     }
 }
